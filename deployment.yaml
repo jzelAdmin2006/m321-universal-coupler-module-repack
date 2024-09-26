@@ -38,7 +38,7 @@ spec:
           value: 192.168.100.11
         - name: ENCRYPTION_KEY
           value: 0aa6fa64ac89441ac417c2ac78c6d62d86dba04c
-        image: 192.168.100.11:5000/universal-coupler-module_86f6792b
+        image: 192.168.100.11:5000/universal-coupler-module_783b4c1d
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 3
