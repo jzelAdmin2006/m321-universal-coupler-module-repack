@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: "1"
+    deployment.kubernetes.io/revision: "2"
     kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"1"},"creationTimestamp":"2024-09-06T21:16:16Z","generation":1,"labels":{"app":"universal-coupler-module","targetname":"universal-coupler-module"},"name":"universal-coupler-module","namespace":"theship-vendor","resourceVersion":"3690396","uid":"a7f18053-7bef-4d8b-a235-0de47ff24e93"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":10,"selector":{"matchLabels":{"app":"universal-coupler-module"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"universal-coupler-module"}},"spec":{"containers":[{"env":[{"name":"PYTHONUNBUFFERED","value":"1"},{"name":"K8S_HOST","value":"192.168.100.11"},{"name":"ENCRYPTION_KEY","value":"0aa6fa64ac89441ac417c2ac78c6d62d86dba04c"}],"image":"jzeladmin2006/m321-universal-coupler-module-repack","imagePullPolicy":"Always","livenessProbe":{"failureThreshold":3,"initialDelaySeconds":120,"periodSeconds":10,"successThreshold":1,"tcpSocket":{"port":2023},"timeoutSeconds":1},"name":"app","ports":[{"containerPort":2023,"protocol":"TCP"}],"readinessProbe":{"failureThreshold":3,"periodSeconds":2,"successThreshold":1,"tcpSocket":{"port":2023},"timeoutSeconds":1},"resources":{"limits":{"memory":"120M"}},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File"}],"dnsPolicy":"ClusterFirst","enableServiceLinks":false,"restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30}}},"status":{"availableReplicas":1,"conditions":[{"lastTransitionTime":"2024-09-06T21:16:23Z","lastUpdateTime":"2024-09-06T21:16:23Z","message":"Deployment has minimum availability.","reason":"MinimumReplicasAvailable","status":"True","type":"Available"},{"lastTransitionTime":"2024-09-06T21:16:16Z","lastUpdateTime":"2024-09-06T21:16:23Z","message":"ReplicaSet \"universal-coupler-module-844bc7bc59\" has successfully progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"}],"observedGeneration":1,"readyReplicas":1,"replicas":1,"updatedReplicas":1}}
-  creationTimestamp: "2024-09-26T17:13:17Z"
-  generation: 1
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"labels":{"app":"universal-coupler-module","targetname":"universal-coupler-module"},"name":"universal-coupler-module","namespace":"theship-vendor"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"universal-coupler-module"}},"template":{"metadata":{"labels":{"app":"universal-coupler-module"}},"spec":{"containers":[{"env":[{"name":"PYTHONUNBUFFERED","value":"1"},{"name":"K8S_HOST","value":"192.168.100.11"},{"name":"ENCRYPTION_KEY","value":"0aa6fa64ac89441ac417c2ac78c6d62d86dba04c"}],"image":"192.168.100.11:5000/universal-coupler-module_53725593","livenessProbe":{"initialDelaySeconds":120,"periodSeconds":10,"tcpSocket":{"port":2023}},"name":"app","ports":[{"containerPort":2023}],"readinessProbe":{"periodSeconds":2,"tcpSocket":{"port":2023}},"resources":{"limits":{"memory":"120M"}},"volumeMounts":[]}],"enableServiceLinks":false,"volumes":[]}}}}
+  creationTimestamp: "2024-10-14T16:31:47Z"
+  generation: 3
   labels:
     app: universal-coupler-module
     targetname: universal-coupler-module
   name: universal-coupler-module
   namespace: theship-vendor
-  resourceVersion: "7513759"
-  uid: 7e441e2a-5842-44b5-b0fd-e882924debb6
+  resourceVersion: "10964495"
+  uid: 002ca1ba-6cfc-416e-8e64-35aaa949cdd0
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -40,7 +40,7 @@ spec:
           value: 192.168.100.11
         - name: ENCRYPTION_KEY
           value: 0aa6fa64ac89441ac417c2ac78c6d62d86dba04c
-        image: jzeladmin2006/m321-universal-coupler-module-repack
+        image: 192.168.100.11:5000/universal-coupler-module_53725593
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 3
@@ -75,19 +75,19 @@ spec:
 status:
   availableReplicas: 1
   conditions:
-  - lastTransitionTime: "2024-09-26T17:13:25Z"
-    lastUpdateTime: "2024-09-26T17:13:25Z"
+  - lastTransitionTime: "2024-10-14T16:31:47Z"
+    lastUpdateTime: "2024-10-16T18:03:05Z"
+    message: ReplicaSet "universal-coupler-module-6dd568cfc8" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2024-10-22T09:25:32Z"
+    lastUpdateTime: "2024-10-22T09:25:32Z"
     message: Deployment has minimum availability.
     reason: MinimumReplicasAvailable
     status: "True"
     type: Available
-  - lastTransitionTime: "2024-09-26T17:13:17Z"
-    lastUpdateTime: "2024-09-26T17:13:25Z"
-    message: ReplicaSet "universal-coupler-module-7f96b975f6" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 1
+  observedGeneration: 3
   readyReplicas: 1
   replicas: 1
   updatedReplicas: 1
